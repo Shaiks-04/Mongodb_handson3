@@ -1,17 +1,14 @@
-const route= require("express").Router()
+const express = require('express');
+const router = express.Router();
+const { insertDetails,fetchdata,deletedata,salary,overallExp,graduate,setsalary } = require('../Controller/student'); // Replace with your actual controller file
 
-const { addData, addMultipleData,fetchData } = require("../Controller/student")
-const { addemp,fetchdb,salary, experience,graduated, updatesal, dlt } = require("../Controller/employee")
+// Define routes
+router.post('/insert', insertDetails);
+router.get('/fetch', fetchdata);
+router.get('/delete', deletedata);
+router.get('/salary',salary);
+router.get('/overallExp',overallExp);
+router.get('/graduate',graduate);
+router.post('/setsalary',setsalary);
 
-route.post("/addemp",addemp)
-route.post("/addData",addData)
-route.post("/addMultipleData",addMultipleData)
-route.get("/fetchData",fetchData)
-route.get("/fetchdb",fetchdb)
-route.get("/salary",salary)
-route.get("/experience",experience)
-route.get("/graduated",graduated)
-route.post("/updatesal",updatesal)
-route.get('/dlt',dlt)
-
-module.exports=route
+module.exports = router;
