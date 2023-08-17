@@ -2,31 +2,9 @@ const employee=require("../projectmodel/projectstructure")
 
 const insertDetails=async(req,res)=>{
 const userdetails=req.body;
-// const {firstName,lastName,salary,department,lastCompany,lastSalary,overallExp,contactInfo,yearGrad,gradStream}=req.body;
-// const user=await student.findOne({Email:Email})
-// if(user){
-    // res.send({msg:"user already in use"})
-// }
-// const result=await student.create({
-    // name,Email,Password,BtachID
-// })
-// else{
-// const tempObj= new employee ({
-//     firstName:firstName,
-//     lastName:lastName,
-//     salary:salary,
-//     department:department,
-//     lastCompany:lastCompany,
-//     lastSalary:lastSalary,
-//     overallExp:overallExp,
-//     contactInfo:contactInfo,
-//     yearGrad:yearGrad,
-//     gradStream:gradStream
-// });
 const result=await employee.insertMany(userdetails);
 return res.send({msg:"user data has been stored",result:result})
 }
-// }
 const fetchdata=async(req,res)=>{
     const result=await employee.find()
     return res.send({result:result})
